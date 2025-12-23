@@ -21,7 +21,7 @@ setup(
         'webdataset',
         'dill',
         'pandas',
-        'chumpy @ git+https://github.com/mattloper/chumpy',
+        'chumpy',  # already installed separately
     ],
     extras_require={
         'all': [

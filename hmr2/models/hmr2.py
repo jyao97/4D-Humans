@@ -33,7 +33,7 @@ class HMR2(pl.LightningModule):
         self.backbone = create_backbone(cfg)
         if cfg.MODEL.BACKBONE.get('PRETRAINED_WEIGHTS', None):
             log.info(f'Loading backbone weights from {cfg.MODEL.BACKBONE.PRETRAINED_WEIGHTS}')
-            self.backbone.load_state_dict(torch.load(cfg.MODEL.BACKBONE.PRETRAINED_WEIGHTS, map_location='cpu')['state_dict'])
+            self.backbone.load_state_dict(torch.load(cfg.MODEL.BACKBONE.PRETRAINED_WEIGHTS, map_location='cpu', weights_only=False)['state_dict'])
 
         # Create SMPL head
         self.smpl_head = build_smpl_head(cfg)
